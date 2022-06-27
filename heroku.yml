@@ -1,5 +1,4 @@
 build:
-  docker:
-    web: .
+  web: Dockerfile
 run:
   web: node index.js
