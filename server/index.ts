@@ -1,3 +1,4 @@
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import * as http from 'http';
@@ -13,7 +14,8 @@ const server = http.createServer(app);
 const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>(server);
 let players: Array<Player> = [];
 
-app.use(express.static('../public'));
+app.use(cors());
+app.use(express.static('./public'));
 
 io.on('connection', (socket: Socket<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>) => {
 	console.log(`${socket.id} now is connected`);
