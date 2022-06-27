@@ -1,3 +1,4 @@
-server/node_modules/
+snode_modules/
 .env
-server/package-lock.json
+package-lock.json
+build/

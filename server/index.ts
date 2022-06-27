@@ -1,11 +1,13 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import * as http from 'http';
 import { Server, Socket } from 'socket.io';
 import { createPlayer, updatePlayer } from './config/player';
 import { Player } from './entities/player';
 import { ClientToServerEvents, InterServerEvents, ServerToClientEvents, SocketData } from './entities/socketio';
+dotenv.config();
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const app = express();
 const server = http.createServer(app);
 const io = new Server<ClientToServerEvents, ServerToClientEvents, InterServerEvents, SocketData>(server);
