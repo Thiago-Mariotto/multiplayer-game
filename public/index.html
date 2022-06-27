@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Game</title>
+
+  <link rel="stylesheet" href="./css/home.css">
+  <script src="/socket.io/socket.io.js"></script>
+
+</head>
+
+<body>
+  <h1>Game status: On</h1>
+  <canvas id="screen" width="10px" height="10px"></canvas>
+
+  <script type="module">
+    import handleKeyDown from './game/config/input.js';
+    const screen = document.getElementById('screen');
+    const context = screen.getContext('2d');
+
+    const socket = io()
+    let players = []; 
+
+    socket.on('connect', () => {
+      console.log(`Player connected on Client with id: ${socket.id}`);
+    })
+
+    socket.on('connectPlayer', (playersUpdated) => {
+      players = playersUpdated;
+      console.log('connect', players)
+    })
+
+    socket.on('playerMovement', (playersUpdated) => {
+      players = playersUpdated;
+      console.log('update', playersUpdated);
+    })
+
+    document.addEventListener('keydown', (e) => {
+      const movement = handleKeyDown(e);
+      socket.emit('movement', movement);
+    });
+
+    renderScreen();
+
+    function renderScreen() {
+      context.fillStyle = 'white';
+      context.clearRect(0, 0, 10, 10);
+
+      for (const playerId in players) {
+        const player = players[playerId];
+        context.fillStyle = `#${player.color}`;
+        context.fillRect(player.position.x, player.position.y, player.size, player.size);
+      }
+
+      // for (const fruitId in game.fruits) {
+      //   const fruit = game.fruits[fruitId];
+      //   context.fillStyle = 'green';
+      //   context.fillRect(fruit.x, fruit.y, 1, 1);
+      // }
+
+      requestAnimationFrame(renderScreen);
+    }
+
+  </script>
+</body>
+
+</html>
