@@ -15,7 +15,6 @@ function generateColor() {
 export function createPlayer(data: SocketData): Player {
 	const randPosition = generatePosition(0, 9);
 	const playerColor = generateColor();
-	console.log(randPosition);
 
 	const player: Player = {
 		id: data.id,
@@ -26,8 +25,6 @@ export function createPlayer(data: SocketData): Player {
 		size: 1,
 		color: playerColor
 	};
-
-	console.log(player);
 
 	return player;
 }
