@@ -9,8 +9,7 @@
 <h1 align="center">Server</h1>
 
 <p align="center">
-  <img alt="Github language count" src="https://img.shields.io/github/languages/count/{{Thiago-Mariotto}}/
-multiplayer-game?color=56BEB8">
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Thiago-Mariotto/multiplayer-game?color=56BEB8">
 
   <!-- <img alt="Github issues" src="https://img.shields.io/github/issues/{{YOUR_GITHUB_USERNAME}}/server?color=56BEB8" /> -->
 
@@ -34,7 +33,7 @@ multiplayer-game?color=56BEB8">
   <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
   <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/{{Thiago-Mariotto}}" target="_blank">Author</a>
+  <a href="https://github.com/Thiago-Mariotto" target="_blank">Author</a>
 </p>
 
 <br>
